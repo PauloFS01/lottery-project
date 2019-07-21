@@ -1,0 +1,47 @@
+@mixin buttom-style ($color){
+    border-radius: 25px;
+    padding: .2em 1em .2em 1em;
+    background: $white;
+    border: solid $default-100 1px;
+    margin-top: 1em;
+    color: $background-100;
+    font-size: 1.5em;
+    text-shadow: 1px 1px 1px $shadow;
+    outline: 0;    
+    &:hover {
+        background:$color;
+        color:white;
+    }
+    &:focus {
+        background:darken($color, 5%);;
+        color:white;
+    }    
+}
+@mixin list-style (){
+    border-radius: 5px;
+    border: solid $shadow 1px;
+    padding: 1em;
+    background: rgba(255, 255, 255, 0.4);
+}
+@mixin result-list-style (){
+    border-radius: 5px;
+    border: solid $shadow 1px;
+    padding: 1em;
+    background: $white;
+}
+@mixin input-custom (){
+    appearance: none;
+    border-radius: 5px;
+    border: solid $default-100 1px;
+    background: $white;
+    font-size: 1.5em;
+    color: $shadow;
+    height: 2em;
+    width: 100%;
+    margin-top: 1em;
+    padding: .5em;
+    box-sizing: border-box;
+}
+@mixin input-error {
+    box-shadow:inset 0 0 2px 2px lighten($danger-100, 20%);
+}

@@ -16,7 +16,6 @@ export default {
 }
 </script>
 
-
 <style lang="scss">
 @import '@/themes/_barrel.scss';
 body {
@@ -25,7 +24,7 @@ body {
   background: $background-100;
 }
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family:  sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: $default-100;
