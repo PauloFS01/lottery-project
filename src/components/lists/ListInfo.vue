@@ -1,10 +1,10 @@
 <template>
-    <div id="wrapper">
+    <div id="wrapper-info">
         <h2>Premiação</h2>
         <span id="subtitle"> O prêmio corresponde a 45% da arrecadação. </span>
         <hr >
         <span class="award-line" v-for="(award, index) in awards" :key="index"> 
-            {{ award }}
+            {{ award }} 
         </span>
     </div>
 </template>
@@ -26,7 +26,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/themes/_barrel.scss';
-#wrapper {
+#wrapper-info {
     @include list-style;
 }
 h2 {
@@ -37,8 +37,13 @@ hr {
     border: solid $shadow 1px;
 }
 .award-line {
-    display: inline-block;
-    margin-top: .5em;
+    display: flex;
+    margin-top: 1em;
+}
+@media only screen and (min-width: 900px) {
+    hr {
+        border: solid white 1px;
+    }    
 }
 </style>
 

@@ -1,23 +1,29 @@
 <template>
   <div id="wrapper">
     <div id="description">
-      <h1>Showing results for:</h1>
       <div id="formated-drawn">
-        <span> {{ formatedDrawn }} </span> 
+        <span id="title-result">Showing results for:</span>
+        <span>  {{ formatedDrawn }} </span> 
       </div>
     </div>
     <div class="list">
       <result-list />
     </div>
+    <span id="title-freq">Frequência por dezena:</span>
+    <div class="list">
+      <list-frequencie />
+    </div>    
   </div>
 </template>
 
 <script>
 import ResultList from '@/components/lists/ResultList'
+import ListFrequencie from '@/components/lists/ListFrequencie'
 import { mapState, mapActions } from 'vuex'
 export default {
   components: {
-    ResultList
+    ResultList,
+    ListFrequencie
   },
   computed: {
     ...mapState({
@@ -38,22 +44,29 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/themes/_barrel.scss';
 #wrapper {
-  padding: 1em;
+  @include layout-wrapper;
 }
 .list {
-  margin-bottom: 1em;
-}
-h1 {
-  margin: 0;
-  padding: 0;
+  margin-bottom: 4em;
 }
 #description {
   margin-bottom: 1em;
 }
 #formated-drawn {
-  font-weight: bold;
   margin-top: .5em;
   font-size: 1.5em;
+}
+#title-result {
+  font-weight: bold;
+  font-size: 1.5em;
+  margin-right: 1em;
+}
+#title-freq {
+  font-weight: bold;
+  font-size: 2em;
+  margin-bottom: .5em; 
+  display: inline-block;
 }
 </style>

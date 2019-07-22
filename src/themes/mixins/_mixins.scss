@@ -1,35 +1,69 @@
-@mixin buttom-style ($color){
+@mixin layout-wrapper {
+    padding: 1em;
+    box-sizing: border-box;
+    // border: solid red 1px;
+    @media only screen and (min-width: 900px) {
+        padding: 0;
+        padding-top: 4em;
+        width: 70%;
+        margin: auto;
+    }
+}
+
+@mixin buttom-style ($color) {
     border-radius: 25px;
     padding: .2em 1em .2em 1em;
     background: $white;
     border: solid $default-100 1px;
-    margin-top: 1em;
     color: $background-100;
     font-size: 1.5em;
     text-shadow: 1px 1px 1px $shadow;
-    outline: 0;    
+    outline: 0;
+    transition: background-color 0.3s ease;
     &:hover {
         background:$color;
         color:white;
+        border: solid $default-100 1px;
     }
     &:focus {
-        background:darken($color, 5%);;
+        background:darken($color, 5%);
         color:white;
-    }    
+        outline: 0;
+    }
+    @media only screen and (min-width: 900px) {
+        padding: .2em;
+        width: 7em;
+        max-height: 2em;
+        border-radius: 10px;
+        border: 0;
+        font-size: 2em;
+    }
 }
-@mixin list-style (){
+@mixin list-style {
     border-radius: 5px;
     border: solid $shadow 1px;
     padding: 1em;
     background: rgba(255, 255, 255, 0.4);
+    @media only screen and (min-width: 900px) {
+        background: transparent;
+        color: white;
+        border: solid white 1px;
+        font-size: .7em;
+    }
 }
-@mixin result-list-style (){
+@mixin result-list-style {
     border-radius: 5px;
     border: solid $shadow 1px;
     padding: 1em;
+    padding-bottom: 3em;
     background: $white;
+    font-size: .8em;
+    @media only screen and (min-width: 900px) {
+        border: solid white 1px;
+        font-size: 1em;
+    }    
 }
-@mixin input-custom (){
+@mixin input-custom {
     appearance: none;
     border-radius: 5px;
     border: solid $default-100 1px;
@@ -38,9 +72,13 @@
     color: $shadow;
     height: 2em;
     width: 100%;
-    margin-top: 1em;
+    //margin-top: 1em;
     padding: .5em;
     box-sizing: border-box;
+    @media only screen and (min-width: 900px) {
+        border: 0;
+        border-radius:10px;
+    }
 }
 @mixin input-error {
     box-shadow:inset 0 0 2px 2px lighten($danger-100, 20%);

@@ -1,13 +1,13 @@
 <template>
   <div id="wrapper">
     <div  id="form-drawn">
-      <form-drawn @click="test" />
+      <form-drawn @click="test" /> 
     </div>
+    <div id="list-prob">
+      <list-probalities /> 
+    </div>    
     <div  id="list-info">
       <list-info />
-    </div>
-    <div>
-      <list-probalities />
     </div>
   </div>
 </template>
@@ -38,19 +38,31 @@ export default {
     }
   },
   created() {
-    this.toggleChange(false)
+    // this.toggleChange(false)
   }
 }
 </script>
 
 <style lang="scss" scoped>
+@import '@/themes/_barrel.scss';
 #wrapper {
-  padding: 1em;
+  @include layout-wrapper;
 }
 #form-drawn {
   margin-bottom: 1em;
 }
 #list-info {
   margin-bottom: 1em;
+}
+@media only screen and (min-width: 900px) {
+  #list-info {
+    width: 50%;
+    float: left;
+    margin-left: 3em;
+  }
+  #list-prob {
+    width: 45%;
+    float: left;
+  }
 }
 </style>

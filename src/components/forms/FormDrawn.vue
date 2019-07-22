@@ -1,8 +1,10 @@
 <template>
-    <div id="wrapper">
+    <div id="wrapper-form">
+        <div id="label-div">
+            <label for="number">Digite seu jogo</label>
+        </div>
         <form @submit.prevent>
             <div id="inputs-wrapper">
-                <label for="number">Digite seu jogo</label>
                 <input 
                     id="number" 
                     :class="errors ? 'input-error' : '' " 
@@ -14,13 +16,21 @@
                 >
                 <div id="alert-error" v-if="errors"> {{ errors }}</div>      
             </div>
-            <button @click="buttonClick"> Enviar </button>
+            <div id="button"> 
+                <button @click="buttonClick"> Enviar </button> 
+            </div>
+            <div id="field">
+                <info-field />
+            </div>
         </form>
     </div>
 </template>
 <script>
-
+import InfoField from '@/components/shared/InfoField'
 export default {
+    components: {
+        InfoField
+    },
     props: {
         drawn: {
             type: Number
@@ -88,8 +98,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import 'node_modules/bootstrap/scss/bootstrap';
+@import 'node_modules/bootstrap-vue/src/index.scss';
 @import '@/themes/_barrel.scss';
-#wrapper {
+#wrapper-form {
+    padding: 1em;
     border-radius: 5px;
     background: $white;
     border: solid $shadow 1px;
@@ -110,11 +123,40 @@ input {
     @include input-error;
 }
 label {
-    color: $background-100;
     font-size: 2em;
-    text-shadow: 1px 1px 1px $shadow;
+    color: $background-100;
+    text-shadow: 4px 2px 3px $shadow;
 }
 button {
     @include buttom-style ($background-100);
+}
+#field {
+    display: none;
+}
+// mobile style
+@media only screen and (min-width: 900px) {
+    #wrapper-form {
+        background: transparent;
+        border: 0;
+        padding: 0;
+    }
+    #inputs-wrapper {
+        box-sizing: border-box;
+        width: 30em;    
+    }
+    form {
+        display: inline-block;
+        margin-top: 1em;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;           
+    }
+    #field {
+        display: block;
+    }
+    label {
+        font-size: 3em;
+        color: $white;
+    }
 }
 </style>

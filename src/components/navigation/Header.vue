@@ -1,15 +1,7 @@
 <template>
-    <div id="wrapper">
-        <div id="lists"  v-if="toggle">
-            <router-link to="/">
-                <i class="fa fa-arrow-left"></i>
-            </router-link>
-            <div id="title">{{ title }}</div>
-            <i class="fas fa-search-dollar"></i>           
-        </div>
-        <div id="home"  v-else>
-            <div id="title">{{ title }}</div>        
-        </div>        
+    <div id="wrapper-header">
+        <div id="header"> <span id="title">{{ title }}</span> </div>          
+        <div id="header-desktop"> <span id="title">{{ title }}</span></div>
     </div>
 </template>
 <script>
@@ -29,15 +21,14 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import '@/themes/_barrel.scss';
-#wrapper {
-    padding: 1em;
+#wrapper-header {
+    padding: 2em;
     text-align: center;
-    border: solid white 1px;
+    border-bottom: solid white 1px;
+    background: #2C3E50;
 }
-i {
-    font-size: 1.5em;
-    color: $white;
-    text-shadow: 4px 2px 3px $shadow;
+#header {
+
 }
 #lists {
     display: flex;
@@ -46,8 +37,21 @@ i {
     vertical-align: middle;
 }
 #title {
-    font-size: 2em;
+    font-size: 3em;
     color: white;
     text-shadow: 4px 2px 3px $shadow;
+}
+#header-desktop {
+    display: none;
+}
+@media only screen and (min-width: 900px) {
+    #header-desktop {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between; 
+    }
+    #header {
+        display: none;
+    }    
 }
 </style>

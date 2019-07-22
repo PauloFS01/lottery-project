@@ -1,5 +1,5 @@
 <template>
-    <div id="wrapper">
+    <div id="wrapper-probabilities">
         <h2>Probabilidades:</h2>
         <span> Por tamanho da aposta. De 1 em: </span>
         <hr>
@@ -37,7 +37,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/themes/_barrel.scss';
-#wrapper {
+#wrapper-probabilities {
     @include list-style;
 }
 h2 {

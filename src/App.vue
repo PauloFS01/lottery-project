@@ -17,6 +17,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import 'node_modules/bootstrap/scss/bootstrap';
+@import 'node_modules/bootstrap-vue/src/index.scss';
 @import '@/themes/_barrel.scss';
 body {
   padding: 0;
@@ -24,7 +26,7 @@ body {
   background: $background-100;
 }
 #app {
-  font-family:  sans-serif;
+  font-family: sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: $default-100;
