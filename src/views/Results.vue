@@ -1,9 +1,12 @@
 <template>
   <div id="wrapper">
-    <div id="description">
+    <div id="description"> 
+      <div id="div-back">
+        <router-link  id="back-icon" to="/"> <i class="fas fa-arrow-left"></i> voltar</router-link>
+      </div>
       <div id="formated-drawn">
         <span id="title-result">Showing results for:</span>
-        <span>  {{ formatedDrawn }} </span> 
+        <p>  {{ formatedDrawn }} </p> 
       </div>
     </div>
     <div class="list">
@@ -55,18 +58,30 @@ export default {
   margin-bottom: 1em;
 }
 #formated-drawn {
-  margin-top: .5em;
   font-size: 1.5em;
 }
 #title-result {
   font-weight: bold;
-  font-size: 1.5em;
-  margin-right: 1em;
+  margin-right: .8em;
 }
 #title-freq {
   font-weight: bold;
-  font-size: 2em;
+  font-size: 1.4em;
   margin-bottom: .5em; 
   display: inline-block;
+}
+#back-icon {
+  float: right;
+  color: $white;
+  text-decoration: none;
+  font-size: 1em;
+  i {
+    margin-right: 1em;
+  }
+}
+#div-back {
+  //border: solid red 1px;
+  height: 2em;
+  padding:0;
 }
 </style>

@@ -13,8 +13,7 @@
                     @keydown="selectkeydown"
                     @input="uptdateInput"
                     maxlength="44"
-                >
-                <div id="alert-error" v-if="errors"> {{ errors }}</div>      
+                >     
             </div>
             <div id="button"> 
                 <button @click="buttonClick"> Enviar </button> 
@@ -39,7 +38,6 @@ export default {
     data () {
         return {
             unformatted: '',
-            errors: '',
             arrayValue: []
         }
     },
@@ -47,11 +45,10 @@ export default {
         buttonClick() {
             if(this.unformatted) {
                 this.$emit('click', this.arrayValue)
-                this.errors = ''
                 this.unformatted = ''
                 this.arrayValue = []
             } else {
-                this.errors = 'Preencha o campo'
+                this.makeToast('b-toaster-top-center')
             }
         },
         selectkeydown(e) {
@@ -81,6 +78,15 @@ export default {
         },
         removeMask(value) {
             return value.split('-').join('')
+        },
+        makeToast(toaster, append = false) {
+            this.$bvToast.toast('The field must be filed', {
+            title: `Error`,
+            toaster: toaster,
+            solid: true,
+            appendToast: append,
+            variant:"danger"
+            })
         }        
     },
     computed: {
@@ -129,6 +135,7 @@ label {
 }
 button {
     @include buttom-style ($background-100);
+    margin-top: 1em;
 }
 #field {
     display: none;
@@ -142,17 +149,24 @@ button {
     }
     #inputs-wrapper {
         box-sizing: border-box;
-        width: 30em;    
+        width: 30em;
+        #alert-error {
+            bottom: 15px;
+        }
     }
     form {
-        display: inline-block;
-        margin-top: 1em;
         display: flex;
         flex-direction: row;
         justify-content: space-between;           
     }
+    button {
+        width: 7em;
+        margin: 0;
+        margin-left: .5em;
+    }
     #field {
         display: block;
+        margin-left: .5em;
     }
     label {
         font-size: 3em;

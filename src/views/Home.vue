@@ -1,12 +1,12 @@
 <template>
   <div id="wrapper">
-    <div  id="form-drawn">
+    <div  id="form-drawn" class="lists-fields">
       <form-drawn @click="test" /> 
     </div>
-    <div id="list-prob">
+    <div id="list-prob" class="lists-fields">
       <list-probalities /> 
     </div>    
-    <div  id="list-info">
+    <div  id="list-info" class="lists-fields">
       <list-info />
     </div>
   </div>
@@ -48,17 +48,14 @@ export default {
 #wrapper {
   @include layout-wrapper;
 }
-#form-drawn {
-  margin-bottom: 1em;
-}
-#list-info {
+.lists-fields {
   margin-bottom: 1em;
 }
 @media only screen and (min-width: 900px) {
   #list-info {
     width: 50%;
-    float: left;
-    margin-left: 3em;
+    float: right;
+    //margin-left: 3em;
   }
   #list-prob {
     width: 45%;
