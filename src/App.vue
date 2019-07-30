@@ -3,7 +3,9 @@
     <div id="nav">
       <Header />
     </div>
-    <router-view/>
+    <div id="main">
+      <router-view/>
+    </div>
   </div>
 </template>
 
@@ -30,5 +32,14 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: $default-100;
+  height: 200rem;
+}
+#main {
+  margin-top: 110px;
+}
+@media only screen and (min-width: 900px) {
+  #main {
+    margin-top: 7em;
+  }  
 }
 </style>

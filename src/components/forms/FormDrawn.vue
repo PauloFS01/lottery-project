@@ -38,6 +38,7 @@ export default {
     data () {
         return {
             unformatted: '',
+            errors: false,
             arrayValue: []
         }
     },
@@ -48,6 +49,7 @@ export default {
                 this.unformatted = ''
                 this.arrayValue = []
             } else {
+                this.errors = true 
                 this.makeToast('b-toaster-top-center')
             }
         },
